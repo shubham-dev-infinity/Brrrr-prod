@@ -1,3 +1,86 @@
+$(".custom-select").each(function() {
+    var classes = $(this).attr("class"),
+        id      = $(this).attr("id"),
+        name    = $(this).attr("name");
+    var template =  '<div class="' + classes + '">';
+        template += '<span class="custom-select-trigger">' + $(this).attr("placeholder") + '</span>';
+        template += '<div class="custom-options">';
+        $(this).find("option").each(function() {
+          template += '<span class="custom-option ' + $(this).attr("class") + '" data-value="' + $(this).attr("value") + '">' + $(this).html() + '</span>';
+        });
+    template += '</div></div>';
+    
+    $(this).wrap('<div class="custom-select-wrapper"></div>');
+    $(this).hide();
+    $(this).after(template);
+  });
+  $(".custom-option:first-of-type").hover(function() {
+    $(this).parents(".custom-options").addClass("option-hover");
+  }, function() {
+    $(this).parents(".custom-options").removeClass("option-hover");
+  });
+  $(".custom-select-trigger").on("click", function() {
+    $('html').one('click',function() {
+      $(".custom-select").removeClass("opened");
+    });
+    $(this).parents(".custom-select").toggleClass("opened");
+    event.stopPropagation();
+  });
+  $(".custom-option").on("click", function() {
+    $(this).parents(".custom-select-wrapper").find("select").val($(this).data("value"));
+    $(this).parents(".custom-options").find(".custom-option").removeClass("selection");
+    $(this).addClass("selection");
+    $(this).parents(".custom-select").removeClass("opened");
+    $(this).parents(".custom-select").find(".custom-select-trigger").text($(this).text());
+  });
+
+
+
+
+
+
+
+
+
+const label = document.querySelector(".dropdown__filter-selected");
+const options = Array.from(
+	document.querySelectorAll(".dropdown__select-option")
+);
+
+options.forEach((option) => {
+	option.addEventListener("click", () => {
+		label.textContent = option.textContent;
+	});
+});
+
+// Close dropdown onclick outside
+document.addEventListener("click", (e) => {
+	const toggle = document.querySelector(".dropdown__switch");
+	const element = e.target;
+
+	if (element == toggle) return;
+
+	const isDropdownChild = element.closest(".dropdown__filter");
+
+	if (!isDropdownChild) {
+		toggle.checked = false;
+	}
+});
+
+
+
+// $(document).ready(function () {
+//     $('select').niceSelect();
+//     // $("html").niceScroll();	
+//     // $(".list").niceScroll();
+//     $('.xyz').on('click', function () {
+  
+//       event();
+//     });
+//   });
+
+  
+
 $(document).ready(function () {
     // $("body").on('input', '#interest_rate, #management_fees_amount, #refinanced_interest_rate, #refinanced_loan', function () {
     //     var inputElement = $(this)[0]; // Get the DOM element

@@ -1,0 +1,61 @@
+/* styling for custom select */
+.custom-select {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    width: 300px;
+    height: 40px;
+    background: #151515;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 5px 5px;
+    position: relative;
+}
+
+/* arrow down */
+.custom-select:after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    width: 5px;
+    height: 5px;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    z-index: 1;
+    transform: rotateZ(45deg);
+    transition: all 0.3s ease-in-out;
+}
+
+/* show arrow up when custom select is clicked */
+.custom-select.option-active:after {
+    transform: rotateZ(-135deg);
+    top: 17px;
+}
+
+.custom-select-container {
+    display: none;
+}
+
+/* show options when custom select is clicked */
+.custom-select-container.show {
+    display: block;
+}
+
+/* styling for each option item */
+.custom-select-item {
+    margin: 1px 0;
+    width: 300px;
+    height: 40px;
+    background: #151515;
+    color: #fff;
+    padding: 0 20px;
+    font-size: 14px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.custom-select-item:hover {
+    background: salmon;
+}

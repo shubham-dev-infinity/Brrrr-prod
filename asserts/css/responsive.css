@@ -1,4 +1,5 @@
 @media (max-width: 1200px) {
+
   i.fa-solid.fa-bag-shopping,
   i.fa-solid.fa-building {
     font-size: 16px;
@@ -25,9 +26,10 @@
 }
 
 @media (max-width: 1200px) {
-  .logo img{
+  .logo img {
     width: 200px;
   }
+
   #sidebar-container {
     max-width: 250px;
   }
@@ -38,6 +40,18 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+  }
+
+  .annual_box {
+    flex-direction: column;
+  }
+
+  .arrow_green {
+    width: 70px;
+    height: 90px;
+    transform: rotate(90deg);
+    display: flex;
+    margin: 0 auto;
   }
 }
 
@@ -131,6 +145,7 @@
   .give_Width_350 {
     width: 300px !important;
   }
+
   .give_Full_Width {
     display: flex !important;
     width: 100% !important;
@@ -139,8 +154,40 @@
   #mobile_header {
     display: block;
   }
+
   .property_input input,
   .property_input input {
-    max-width: 50%;
+    max-width: 100%;
+  }
+
+  .center {
+    position: unset;
+    transform: unset;
+    width: 100%;
+  }
+
+  .buy_input_box {
+    min-height: unset;
+  }
+}
+
+@media (max-width:575px) {
+  .purchase_label {
+    font-size: 14px;
+  }
+}
+
+
+@media screen and (min-width: 1400px) and (max-width: 1560px) {
+  input.property_inner_input {
+    width: 190px;
+  }
+
+  .input-icon.input-icon-right {
+    gap: 31px !important;
+  }
+
+  .purchase_label {
+    font-size: .7rem;
   }
 }
