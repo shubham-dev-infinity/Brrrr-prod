@@ -116,8 +116,7 @@ section {
   border-radius: 8px;
   border: 1px solid var(--Background, #eef2f7);
   background: var(--White, #fff);
-  font-size: 0.8rem;
-  /* Shadow/xs */
+  font-size: 0.938rem;
   box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
 }
 
@@ -1258,6 +1257,7 @@ a.bg-dark {
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 0 0 1px rgba(68, 68, 68, 0.11);
+  z-index: -1;
 }
 
 .custom-select.opened .custom-options {
@@ -1265,6 +1265,7 @@ a.bg-dark {
   visibility: visible;
   pointer-events: all;
   transform: translateY(0);
+  z-index: 80;
 }
 
 

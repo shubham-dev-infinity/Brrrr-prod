@@ -1,46 +1,3 @@
-$(".custom-select").each(function() {
-    var classes = $(this).attr("class"),
-        id      = $(this).attr("id"),
-        name    = $(this).attr("name");
-    var template =  '<div class="' + classes + '">';
-        template += '<span class="custom-select-trigger">' + $(this).attr("placeholder") + '</span>';
-        template += '<div class="custom-options">';
-        $(this).find("option").each(function() {
-          template += '<span class="custom-option ' + $(this).attr("class") + '" data-value="' + $(this).attr("value") + '">' + $(this).html() + '</span>';
-        });
-    template += '</div></div>';
-    
-    $(this).wrap('<div class="custom-select-wrapper"></div>');
-    $(this).hide();
-    $(this).after(template);
-  });
-  $(".custom-option:first-of-type").hover(function() {
-    $(this).parents(".custom-options").addClass("option-hover");
-  }, function() {
-    $(this).parents(".custom-options").removeClass("option-hover");
-  });
-  $(".custom-select-trigger").on("click", function() {
-    $('html').one('click',function() {
-      $(".custom-select").removeClass("opened");
-    });
-    $(this).parents(".custom-select").toggleClass("opened");
-    event.stopPropagation();
-  });
-  $(".custom-option").on("click", function() {
-    $(this).parents(".custom-select-wrapper").find("select").val($(this).data("value"));
-    $(this).parents(".custom-options").find(".custom-option").removeClass("selection");
-    $(this).addClass("selection");
-    $(this).parents(".custom-select").removeClass("opened");
-    $(this).parents(".custom-select").find(".custom-select-trigger").text($(this).text());
-  });
-
-
-
-
-
-
-
-
 
 const label = document.querySelector(".dropdown__filter-selected");
 const options = Array.from(
@@ -1028,4 +985,25 @@ $(document).ready(function () {
     RefinancedCalculation();
 
 });
+$('#nav_Bars').click(function () {
+    $('body').css('overflow', 'hidden');
+    $('#sidebar-container').addClass('give_Full_Width');
+    $('#layoutSidenav_nav').addClass('give_Width_350');
+})
+$('#close_Nav_Button').click(function () {
+    $('body').css('overflow', 'auto');
+    $('#sidebar-container').removeClass('give_Full_Width');
+    $('#layoutSidenav_nav').removeClass('give_Width_350');
+})
+var currentUrl = window.location.href;
 
+// Iterate through each link and compare its href with the current URL
+$('#layoutSidenav_nav a').each(function () {
+    var linkUrl = $(this).attr('href');
+
+    // Check if the link's href matches the current URL
+    if (currentUrl.indexOf(linkUrl) !== -1) {
+        // Add the "activeLink" class to the matching link
+        $(this).addClass('activeLink');
+    }
+});
